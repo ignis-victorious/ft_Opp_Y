@@ -3,7 +3,7 @@
 import flet as ft
 
 #  Import FILES
-from compoments import Header
+from compoments import CakeButton, Header, HealthDisplay
 
 #
 #  ______________________
@@ -16,13 +16,22 @@ def App() -> ft.Column:
         controls=[
             Header(text="Awsome State Demo"),
             ft.Row(
-                controls=[ft.Text(value=f"{health}"), ft.Button(content="+", on_click=lambda: set_health(health + 3))]
+                controls=[
+                    HealthDisplay(health=health),
+                    # ft.Text(value=f"{health}"),
+                    # ft.Button(
+                    #     content="+",
+                    #     on_click=lambda _: set_health(health + 3),
+                    # ),
+                    CakeButton(health=health, set_health=set_health),
+                ],
+                spacing=100,
             ),
         ]
     )
 
 
-ft.run(lambda page: page.render(component=App))  # type: ignore
+ft.run(lambda page: page.render(component=App), assets_dir="assets")  # type: ignore
 
 
 # def main():
