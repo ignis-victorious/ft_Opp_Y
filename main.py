@@ -1,21 +1,21 @@
-# 
+#
 #  Import LIBRARIES
 import flet as ft
+
 #  Import FILES
-# 
+from compoments import Header
+
+#
 #  ______________________
 
 
+@ft.component
+def App() -> ft.Text:
+    return Header(text="Awsome Components Demo")
+    # return ft.Text(value="Great Components!")
 
 
-
-@ft. component 
-def App():
-    return ft.Text(value="Great Components!")
-
-
-ft. run(lambda page: page.render(App))
-
+ft.run(lambda page: page.render(App))  # type: ignore
 
 
 # def main():
@@ -25,9 +25,9 @@ ft. run(lambda page: page.render(App))
 # if __name__ == "__main__":
 #     main()
 
-# 
+#
 #  Import LIBRARIES
 # import flet as ft
 #  Import FILES
-# 
+#
 #  ______________________
