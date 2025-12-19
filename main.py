@@ -10,12 +10,19 @@ from compoments import Header
 
 
 @ft.component
-def App() -> ft.Text:
-    return Header(text="Awsome Components Demo")
-    # return ft.Text(value="Great Components!")
+def App() -> ft.Column:
+    health, set_health = ft.use_state(5)
+    return ft.Column(
+        controls=[
+            Header(text="Awsome State Demo"),
+            ft.Row(
+                controls=[ft.Text(value=f"{health}"), ft.Button(content="+", on_click=lambda: set_health(health + 3))]
+            ),
+        ]
+    )
 
 
-ft.run(lambda page: page.render(App))  # type: ignore
+ft.run(lambda page: page.render(component=App))  # type: ignore
 
 
 # def main():
